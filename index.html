@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="sweetalert.js"></script>
+    <title>did you tried #mathias in the url ?</title>
+</head>
+
+<body>
+    <main>
+        <h1 id="snaptext">Mathias has been snapped out</h1>
+        <h3 id="timer">retry in { time }</h3>
+    </main>
+</body>
+
+</html>
+<style>
+    @font-face {
+        font-family: mathias;
+        src: url(futura.woff);
+    }
+
+    @keyframes swal2-show {
+        0% {
+            transform: scale(.7);
+        }
+
+        80% {
+            transform: scale(1.04);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    html {
+        transform: rotate(3deg);
+    }
+
+    body.swal2-height-auto {
+        height: 97vh !important;
+        transition: margin-top .7s;
+    }
+
+    body {
+        height: 97vh !important;
+        transition: margin-top .7s;
+        align-items: center;
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        justify-content: center;
+        margin: 0;
+        background-color: black;
+    }
+
+    h1 {
+        font-family: mathias;
+        color: red;
+        font-size: 6.5vw;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-family: mathias;
+        color: red;
+        font-size: 5.5vw;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .epo9boredr {
+        font-family: mathias;
+        color: red;
+        border: solid red;
+        padding: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+        font-size: 6.5vw;
+        font-weight: 600;
+    }
+
+    .swal2-popup {
+        border: none;
+        border-radius: 0;
+        background: #000;
+        outline: solid red 1px;
+    }
+
+    .swal2-title,
+    .swal2-content {
+        color: red;
+    }
+
+    .swal2-file,
+    .swal2-input,
+    .swal2-textarea {
+        border: solid red 1px;
+    }
+</style>
+<script>
+    new Audio("rip.mp3").play();
+    let sad = new Audio("sad.mp3")
+    sad.volume = .2
+    sad.loop = true;
+    let timeel = document.getElementById("timer");
+    let snappedouttext = document.getElementById("snaptext")
+    timeel.innerText = `retry in ${new Intl.NumberFormat("fr-fr").format(parseInt(1620750000 - (new Date().getTime() / 1000)))}`;
+    let intid = setInterval(() => {
+        timeel.innerText = `retry in ${new Intl.NumberFormat("fr-fr").format(parseInt(1620750000 - (new Date().getTime() / 1000)))}`;
+    }, 400);
+    function genrandom(len = 6) {
+        let random = "abcdefghijklmnopqrstuvwxyz"
+        let output = ""
+        for (let i = 0; i < len; i++) {
+            output += random[Math.floor(Math.random() * random.length)]
+        }
+        return output
+    }
+    function changetoep9() {
+        clearInterval(intid)
+        snappedouttext.innerText = "?"
+        timeel.remove()
+        setTimeout(() => {
+            snappedouttext.innerText = "episode 10 ?"
+            snappedouttext.classList.add("epo9boredr")
+        }, 3000);
+        setTimeout(() => {
+            sad.play()
+            swal.fire({
+                allowEscapeKey: false,
+                title: "444: something is missing",
+                text: "what the name of the most hated instagram profile username by mathias?",
+                input: 'text'
+            }).then((result) => {
+                sad.pause()
+                if (result.value == "mathias_love_dogs") {
+                    swal.fire("correct")
+                    setInterval(() => {
+                        window.history.replaceState("??", "??", `/${genrandom(6)}/${genrandom(4)}/mathias777.exe`)
+                    }, 50);
+                    setTimeout(() => {
+                        swal.close()
+                    }, 2000)
+                    setTimeout(() => {
+                        document.querySelector("body").style.marginTop = "-100vw"
+                    }, 4000);
+                } else {
+                    swal.fire("incorrect")
+                    document.querySelector("main").innerHTML = `
+                        <h1 id="snaptext">Mathias has been snapped out</h1>
+                        <h3 id="timer">retry in { time }</h3>
+`
+                    let timeel = document.getElementById("timer");
+                    let intid = setInterval(() => {
+                        timeel.innerText = `retry in ${new Intl.NumberFormat("fr-fr").format(parseInt(1618250000 - (new Date().getTime() / 1000)))}`;
+                    }, 400);
+                }
+            }
+            )
+        }, 7000)
+    }
+    window.onhashchange = function () {
+        if (location.hash.substr(1) == "mathias") {
+            changetoep9()
+        }
+    }
+    if (location.hash.substr(1) == "mathias") {
+        changetoep9()
+    }
+
+</script>
